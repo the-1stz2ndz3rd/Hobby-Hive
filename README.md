@@ -34,8 +34,8 @@ Hobby Hive is an engaging and user-friendly social platform designed to bring ho
 - **Dark Mode Interface**  
   Provides an optional dark theme for comfortable usage in low-light environments.
 
-- **Icebreaker Questions for Private Chats**  
-  Displays fun conversation starters when users initiate private chats to encourage interaction.
+- **Icebreaker Questions for Group Chats**  
+  Displays fun conversation starters in group chats to encourage interaction among members.
 
 - **User Activity Tracking & Mini Polls**  
   Tracks participation like messages sent and events joined; groups can create quick polls for member feedback.
