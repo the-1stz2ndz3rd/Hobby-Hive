@@ -3,19 +3,45 @@
 Hobby Hive is an engaging and user-friendly social platform designed to bring hobby enthusiast Addis Ababa University students together. The app helps students connect with others based on shared hobbies and intelligently matches people who have similar interests. Users can join hobby-based groups, chat with others, plan events, and receive personalized activity suggestions to enrich their hobby experiences. Hobby Hive makes it simple and fun to meet new friends, explore your passions, and build a vibrant community around what you love. 
 
 ## Features
-- **User Sign-Up & Authentication** with hobby selection and profile setup  
-- **Automatic Group Assignment** based on hobbies
-- **Hobby Matching** The app matches users who share 2 or more hobbies 
-- **Group & Private Chat** for hobby discussions and 1-on-1 messaging  
-- **Event Planning** within groups with calendar view  
-- **Personalized Activity Suggestions** and daily hobby tips  
-- **User Profiles & Search** to connect with others  
-- **Safety Tools:** Report and block users  
-- **Notifications** for new events, messages, and matches  
-- **Dark Mode** for UI preference  
-- **Fun Icebreaker Questions** to spark conversations  
-- **User Activity Tracking** and mini polls in groups  
-- **Moderator Controls** for group management
+
+- **User Sign-Up & Authentication**  
+  Allows users to securely create accounts, select hobbies, and set up personal profiles to customize their experience.
+
+- **Automatic Group Assignment**  
+  Users are automatically added to hobby-based groups matching their interests, fostering easy community building.
+
+- **Hobby Matching System**  
+  Intelligently matches users who share two or more hobbies, encouraging meaningful connections and friendships.
+
+- **Group & Private Chat**  
+  Supports real-time messaging within hobby groups as well as private one-on-one conversations.
+
+- **Event Planning and Calendar Integration**  
+  Users can create, view, and manage events within their groups, such as meetups or hobby-related activities, displayed in an integrated calendar.
+
+- **Personalized Activity Suggestions & Daily Hobby Tips**  
+  Provides users with tailored hobby ideas and tips to keep engagement fresh and inspiring.
+
+- **User Profiles & Search Functionality**  
+  Enables browsing and searching for users by name or hobby, with profile views for better networking.
+
+- **Safety Tools: Report & Block Users**  
+  Offers essential safety features allowing users to report inappropriate behavior and block others.
+
+- **Real-Time Notifications**  
+  Alerts users about new group events, messages, or hobby matches to keep them informed and connected.
+
+- **Dark Mode Interface**  
+  Provides an optional dark theme for comfortable usage in low-light environments.
+
+- **Icebreaker Questions for Private Chats**  
+  Displays fun conversation starters when users initiate private chats to encourage interaction.
+
+- **User Activity Tracking & Mini Polls**  
+  Tracks participation like messages sent and events joined; groups can create quick polls for member feedback.
+
+- **Moderator Controls for Group Management**  
+  Group admins can manage members by warning or removing users and moderating chat content.
 
 
 ## How to Set Up and Run Hobby Hive
