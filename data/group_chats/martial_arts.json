@@ -1,0 +1,15 @@
+{
+  "participants": ["alex", "brenda"],
+  "messages": [
+    {
+      "sender": "alex",
+      "timestamp": "2025-05-12T19:00:00Z",
+      "content": "Did you try the new sparring drill today?"
+    },
+    {
+      "sender": "brenda",
+      "timestamp": "2025-05-12T19:10:00Z",
+      "content": "Yes, it was intense but fun!"
+    }
+  ]
+}
