@@ -1,0 +1,15 @@
+{
+  "participants": ["grace", "henry"],
+  "messages": [
+    {
+      "sender": "grace",
+      "timestamp": "2025-05-09T16:45:00Z",
+      "content": "What medium do you prefer for your drawings?"
+    },
+    {
+      "sender": "henry",
+      "timestamp": "2025-05-09T16:50:00Z",
+      "content": "I love working with charcoal the most."
+    }
+  ]
+}

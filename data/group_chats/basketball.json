@@ -1,0 +1,15 @@
+{
+  "participants": ["xander", "yara"],
+  "messages": [
+    {
+      "sender": "xander",
+      "timestamp": "2025-05-20T18:30:00Z",
+      "content": "Great game last night, guys!"
+    },
+    {
+      "sender": "yara",
+      "timestamp": "2025-05-20T18:35:00Z",
+      "content": "Yeah, let’s keep the momentum."
+    }
+  ]
+}

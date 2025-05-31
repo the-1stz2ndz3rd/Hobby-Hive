@@ -1,0 +1,15 @@
+{
+  "participants": ["isabel", "john"],
+  "messages": [
+    {
+      "sender": "isabel",
+      "timestamp": "2025-05-08T20:00:00Z",
+      "content": "What’s your max bench?"
+    },
+    {
+      "sender": "john",
+      "timestamp": "2025-05-08T20:05:00Z",
+      "content": "I can lift 200lbs!"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "participants": ["linda", "michael"],
+  "messages": [
+    {
+      "sender": "linda",
+      "timestamp": "2025-05-26T15:00:00Z",
+      "content": "Anyone tried that new crochet pattern?"
+    },
+    {
+      "sender": "michael",
+      "timestamp": "2025-05-26T15:05:00Z",
+      "content": "Yes! It’s fun but challenging."
+    }
+  ]
+}

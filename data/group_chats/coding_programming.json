@@ -1,0 +1,15 @@
+{
+  "participants": ["dan", "ella"],
+  "messages": [
+    {
+      "sender": "dan",
+      "timestamp": "2025-05-17T10:00:00Z",
+      "content": "Found a cool library to share."
+    },
+    {
+      "sender": "ella",
+      "timestamp": "2025-05-17T10:05:00Z",
+      "content": "Thanks! I’ll check it out."
+    }
+  ]
+}

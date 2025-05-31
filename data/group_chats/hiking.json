@@ -1,0 +1,15 @@
+{
+  "participants": ["dave", "ellen"],
+  "messages": [
+    {
+      "sender": "ellen",
+      "timestamp": "2025-05-31T09:00:00Z",
+      "content": "Ready for the hike this weekend?"
+    },
+    {
+      "sender": "dave",
+      "timestamp": "2025-05-31T09:15:00Z",
+      "content": "Absolutely! Can't wait to hit the trails."
+    }
+  ]
+}

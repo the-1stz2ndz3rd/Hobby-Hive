@@ -1,0 +1,15 @@
+{
+  "participants": ["tara", "umar"],
+  "messages": [
+    {
+      "sender": "tara",
+      "timestamp": "2025-05-22T19:00:00Z",
+      "content": "Anyone attending the dance workshop next week?"
+    },
+    {
+      "sender": "umar",
+      "timestamp": "2025-05-22T19:10:00Z",
+      "content": "I am! Excited to learn new moves."
+    }
+  ]
+}

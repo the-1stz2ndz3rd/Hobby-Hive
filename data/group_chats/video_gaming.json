@@ -1,0 +1,15 @@
+{
+  "participants": ["ben", "clara"],
+  "messages": [
+    {
+      "sender": "ben",
+      "timestamp": "2025-05-18T21:00:00Z",
+      "content": "Who’s up for a game tonight?"
+    },
+    {
+      "sender": "clara",
+      "timestamp": "2025-05-18T21:05:00Z",
+      "content": "Count me in!"
+    }
+  ]
+}

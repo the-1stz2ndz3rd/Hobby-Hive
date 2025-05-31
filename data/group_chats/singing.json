@@ -1,0 +1,15 @@
+{
+  "participants": ["fiona", "george"],
+  "messages": [
+    {
+      "sender": "fiona",
+      "timestamp": "2025-05-29T18:00:00Z",
+      "content": "What’s your go-to karaoke song?"
+    },
+    {
+      "sender": "george",
+      "timestamp": "2025-05-29T18:05:00Z",
+      "content": "I love singing 'Bohemian Rhapsody'!"
+    }
+  ]
+}

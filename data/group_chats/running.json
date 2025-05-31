@@ -1,0 +1,15 @@
+{
+  "participants": ["rachel", "steve"],
+  "messages": [
+    {
+      "sender": "rachel",
+      "timestamp": "2025-05-23T07:00:00Z",
+      "content": "What’s your favorite running route?"
+    },
+    {
+      "sender": "steve",
+      "timestamp": "2025-05-23T07:05:00Z",
+      "content": "I love the river trail early morning."
+    }
+  ]
+}

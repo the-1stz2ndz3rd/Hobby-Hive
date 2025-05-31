@@ -1,0 +1,15 @@
+{
+  "participants": ["henry", "ivy"],
+  "messages": [
+    {
+      "sender": "henry",
+      "timestamp": "2025-05-15T09:00:00Z",
+      "content": "Best travel destinations for summer?"
+    },
+    {
+      "sender": "ivy",
+      "timestamp": "2025-05-15T09:05:00Z",
+      "content": "I recommend Bali!"
+    }
+  ]
+}

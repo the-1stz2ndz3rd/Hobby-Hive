@@ -1,0 +1,15 @@
+{
+  "participants": ["alice", "bob", "charlie"],
+  "messages": [
+    {
+      "sender": "alice",
+      "timestamp": "2025-05-31T10:00:00Z",
+      "content": "Hey everyone, did you see the sunset today?"
+    },
+    {
+      "sender": "bob",
+      "timestamp": "2025-05-31T10:05:00Z",
+      "content": "Yes! Perfect light for photos."
+    }
+  ]
+}

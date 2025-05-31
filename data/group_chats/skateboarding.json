@@ -1,0 +1,15 @@
+{
+  "participants": ["zane", "amy"],
+  "messages": [
+    {
+      "sender": "zane",
+      "timestamp": "2025-05-19T14:00:00Z",
+      "content": "Trying a new trick tomorrow, wish me luck!"
+    },
+    {
+      "sender": "amy",
+      "timestamp": "2025-05-19T14:05:00Z",
+      "content": "You got this!"
+    }
+  ]
+}

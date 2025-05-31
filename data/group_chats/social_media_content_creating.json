@@ -1,0 +1,21 @@
+{
+  
+  "participants": ["alex", "jamie"],
+  "messages": [
+    {
+      "sender": "alex",
+      "timestamp": "2025-05-21T10:15:00Z",
+      "content": "What type of content got you the most engagement recently?"
+    },
+    {
+      "sender": "jamie",
+      "timestamp": "2025-05-21T10:18:00Z",
+      "content": "Definitely the behind-the-scenes reels—people love seeing the process!"
+    },
+    {
+      "sender": "alex",
+      "timestamp": "2025-05-21T10:20:00Z",
+      "content": "Nice! I’ve been thinking of doing a ‘day in the life’ series."
+    }
+  ]
+}
