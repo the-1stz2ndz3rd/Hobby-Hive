@@ -1,0 +1,202 @@
+{
+  "Photography": [
+    "What’s your favorite subject to photograph and why?",
+    "Which photography style do you enjoy most?",
+    "What’s the coolest photo you’ve ever taken?",
+    "Do you prefer natural light or studio lighting?",
+    "What camera or gear do you use?",
+    "If you could shoot anywhere in the world, where would it be?"
+  ],
+  "Philosophy": [
+    "If you could ask any philosopher one question, what would it be?",
+    "Which philosophical idea challenges you the most?",
+    "Do you believe in fate or free will?",
+    "What’s a philosophy book you’d recommend?",
+    "How do you apply philosophy in your daily life?",
+    "Which thinker do you find most inspiring?"
+  ],
+  "Singing": [
+    "What’s your go-to karaoke song?",
+    "Which singer inspires your style?",
+    "Do you prefer singing solo or in a group?",
+    "What’s the hardest song you’ve learned?",
+    "Do you like singing with or without accompaniment?",
+    "Have you ever performed live?"
+  ],
+  "Playing Musical Instruments": [
+    "What instrument do you play?",
+    "How did you start learning it?",
+    "What’s your favorite song to play?",
+    "Do you prefer playing solo or in a band?",
+    "What instrument would you love to learn next?",
+    "What’s the biggest challenge you faced learning?"
+  ],
+  "Acting": [
+    "What’s your favorite role you’ve played or want to play?",
+    "Do you prefer stage or screen acting?",
+    "What’s the hardest part about acting?",
+    "Which actor inspires you?",
+    "Have you ever improvised in a role?",
+    "What’s your dream production to be part of?"
+  ],
+  "Crocheting": [
+    "What’s the coolest project you’ve crocheted?",
+    "Do you prefer following patterns or freehand?",
+    "What’s your favorite yarn type or color?",
+    "How did you get started crocheting?",
+    "What’s a project you want to try?",
+    "Do you crochet for gifts or personal use?"
+  ],
+  "Reading": [
+    "What’s the best book you’ve read recently?",
+    "Which genre do you prefer?",
+    "If you could live in a book world, which one?",
+    "Do you prefer eBooks or physical books?",
+    "What book do you recommend to everyone?",
+    "What’s a book that changed your perspective?"
+  ],
+  "Hiking": [
+    "What’s your favorite hiking trail?",
+    "Do you prefer solo or group hikes?",
+    "What’s your must-have hiking gear?",
+    "Have you ever camped overnight during a hike?",
+    "What’s the most challenging hike you’ve done?",
+    "What’s your dream hiking destination?"
+  ],
+  "Running": [
+    "What’s your favorite running route?",
+    "Do you prefer trail or road running?",
+    "What motivates you to run?",
+    "Have you participated in any races?",
+    "What’s your best running playlist song?",
+    "How do you recover after a long run?"
+  ],
+  "Dance": [
+    "What’s your favorite dance style?",
+    "Have you ever performed publicly?",
+    "What song always gets you dancing?",
+    "Do you prefer group or solo dancing?",
+    "What’s the hardest dance move you’ve learned?",
+    "Who’s your favorite dancer or choreographer?"
+  ],
+  "Football (Soccer)": [
+    "Which team do you support?",
+    "Who’s your favorite player?",
+    "What position do you play?",
+    "What’s your favorite football memory?",
+    "Do you watch international tournaments?",
+    "Have you ever scored a winning goal?"
+  ],
+  "Basketball": [
+    "What position do you play?",
+    "Which NBA player do you admire?",
+    "What’s your favorite basketball moment?",
+    "Do you prefer streetball or organized games?",
+    "What’s your best basketball skill?",
+    "Have you played in any tournaments?"
+  ],
+  "Skateboarding": [
+    "How did you start skateboarding?",
+    "What trick are you practicing?",
+    "What’s your favorite skate spot?",
+    "Who’s your skateboarding idol?",
+    "Do you prefer street or park skating?",
+    "What’s the coolest trick you’ve landed?"
+  ],
+  "Video Gaming": [
+    "What game are you playing right now?",
+    "Console, PC, or mobile—what’s your pick?",
+    "What’s your favorite gaming genre?",
+    "Have you ever participated in gaming tournaments?",
+    "Who’s your favorite video game character?",
+    "What’s a game you wish more people knew about?"
+  ],
+  "Coding/Programming": [
+    "What programming language do you prefer?",
+    "What’s your favorite project you’ve worked on?",
+    "Do you prefer frontend or backend development?",
+    "What’s the hardest bug you’ve fixed?",
+    "How did you learn to code?",
+    "What coding resource helped you most?"
+  ],
+  "Learning Languages": [
+    "What language are you learning?",
+    "What’s the hardest part of learning a language?",
+    "If you could speak any language instantly, which?",
+    "What’s your favorite way to practice?",
+    "Have you visited a country to practice the language?",
+    "What language sounds the most beautiful to you?"
+  ],
+  "Traveling": [
+    "What’s the most memorable place you’ve visited?",
+    "Do you prefer solo or group travel?",
+    "What’s your travel bucket list?",
+    "What’s the best food you’ve tried abroad?",
+    "Have you ever experienced a travel mishap?",
+    "What’s your favorite travel souvenir?"
+  ],
+  "Astronomy": [
+    "What’s your favorite celestial object?",
+    "Have you seen a meteor shower or eclipse?",
+    "Do you use a telescope?",
+    "What fascinates you most about space?",
+    "Do you believe there’s life beyond Earth?",
+    "What’s a space fact you love sharing?"
+  ],
+  "Weight Lifting": [
+    "What’s your favorite lift?",
+    "How did you start weightlifting?",
+    "What’s your current fitness goal?",
+    "Do you lift solo or with a group?",
+    "What’s your best lifting tip?",
+    "How do you stay motivated?"
+  ],
+  "Martial Arts": [
+    "What martial art do you practice?",
+    "What’s the most valuable lesson you’ve learned?",
+    "Have you competed or performed?",
+    "What’s your favorite training drill?",
+    "Who’s your martial arts role model?",
+    "How has martial arts changed you?"
+  ],
+  "Fashion Design": [
+    "Who inspires your fashion style?",
+    "What’s your favorite piece you’ve designed?",
+    "Do you prefer casual or formal wear?",
+    "What’s your dream fashion project?",
+    "What’s a fashion trend you love or hate?",
+    "How do you get creative ideas?"
+  ],
+  "Drawing": [
+    "What medium do you prefer?",
+    "Who’s your favorite artist?",
+    "What’s the hardest thing you’ve drawn?",
+    "Do you prefer sketching or detailed work?",
+    "What inspires your art?",
+    "Have you ever exhibited your drawings?"
+  ],
+  "Cooking": [
+    "What’s your signature dish?",
+    "Do you prefer sweet or savory cooking?",
+    "What’s your favorite cuisine?",
+    "Have you ever tried cooking something challenging?",
+    "Who taught you to cook?",
+    "What’s a cooking tip you swear by?"
+  ],
+  "Watching Movies": [
+    "What’s your all-time favorite movie?",
+    "Which genre do you enjoy most?",
+    "Do you prefer watching at home or theater?",
+    "Who’s your favorite actor/actress?",
+    "What’s a movie you can watch repeatedly?",
+    "What’s the last movie you watched?"
+  ],
+  "Social Media Content Creating": [
+    "What type of content do you create?",
+    "What’s your favorite platform?",
+    "Who inspires your content?",
+    "What’s your biggest content creation challenge?",
+    "How do you stay creative?",
+    "What’s your proudest post or video?"
+  ]
+}
