@@ -2,7 +2,7 @@
 import tkinter as tk
 from PIL import Image, ImageTk
 from config import ICONS_DIR
-from utils.themes import get_theme_colors
+from themes import get_theme_colors
 
 def center_window(window, width=400, height=300):
     screen_width = window.winfo_screenwidth()
