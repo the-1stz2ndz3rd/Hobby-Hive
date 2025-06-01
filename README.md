@@ -44,7 +44,7 @@ Hobby Hive is an engaging and user-friendly social platform designed to bring ho
   Group admins can manage members by warning or removing users and moderating chat content.
 
 
-## 🚀 How to Set Up and Run Hobby Hive
+## How to Set Up and Run Hobby Hive
 
 ### 1. Clone the Repository
 ```bash
