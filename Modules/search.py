@@ -1,4 +1,5 @@
 # modules/search.py
+
 from utils.data_storage import load_json
 
 USERS_FILE = "data/users_data.json"

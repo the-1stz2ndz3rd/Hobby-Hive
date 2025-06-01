@@ -3,6 +3,7 @@ from utils.data_storage import load_json, save_json
 
 NOTIFICATIONS_FILE = "data/notifications.json"
 
+
 def get_notifications(username):
     notifications = load_json(NOTIFICATIONS_FILE)
     if not isinstance(notifications, dict):
