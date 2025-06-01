@@ -5,6 +5,8 @@ NOTIFICATIONS_FILE = "data/notifications.json"
 
 def get_notifications(username):
     notifications = load_json(NOTIFICATIONS_FILE)
+    if not isinstance(notifications, dict):
+        notifications = {}
     return notifications.get(username, [])
 
 def add_notification(username, notification):
@@ -18,6 +20,8 @@ def add_notification(username, notification):
 
 def clear_notifications(username):
     notifications = load_json(NOTIFICATIONS_FILE)
+    if not isinstance(notifications, dict):
+        notifications = {}
     if username in notifications:
         notifications[username] = []
         save_json(NOTIFICATIONS_FILE, notifications)
