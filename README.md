@@ -44,34 +44,44 @@ Hobby Hive is an engaging and user-friendly social platform designed to bring ho
   Group admins can manage members by warning or removing users and moderating chat content.
 
 
-## How to Set Up and Run Hobby Hive
+## 🚀 How to Set Up and Run Hobby Hive
 
-1. **Clone the repository**  
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/the-1stz2ndz3rd/Hobby-Hive.git
 cd Hobby-Hive
 ```
 
-2. **Ensure Python is installed**
-   Make sure you have Python 3.6 or later installed. You can check by running:
-
+### 2. Ensure Python 3.6 or Later Is Installed
+Check your Python version:
 ```bash
 python --version
 ```
 
-3. **Install Tkinter (if not already installed)**
+> If you have both `python` and `python3`, use `python3` consistently.
 
-   * For Ubuntu/Debian:
-
+### 3. (Optional but Recommended) Create a Virtual Environment
 ```bash
-sudo apt-get install python3-tk
+python -m venv venv
+source venv/bin/activate   # On Windows: venv\Scripts\activate
 ```
 
-4. **Run the application**
+### 4. Install Tkinter (If Not Already Installed)
 
+- **Ubuntu/Debian:**
+  ```bash
+  sudo apt-get install python3-tk
+  ```
+- **macOS:** Tkinter usually comes pre-installed.
+- **Windows:** Comes bundled with standard Python installers.
+
+### 5. Run the Application
 ```bash
-python hobby_hive.py
+python main.py
 ```
+
+---
+
 
 ## Group Members
 - Mekdes Manaye (7404/17)
