@@ -1,93 +1,84 @@
-# modules/private_chat.py
-
-import tkinter as tk
-from tkinter import messagebox, scrolledtext
+import json
 import os
 import datetime
+import random
+from config import PRIVATE_CHAT_DIR, ICEBREAKERS_FILE
+from modules.notifications import add_notification
 
-from utils.data_storage import load_json, save_json
-from utils.ui_helpers import style_chat_bubble
-from utils.themes import get_current_theme
-from data.icebreakers import get_random_icebreaker
+# Ensure chat directory exists
+os.makedirs(PRIVATE_CHAT_DIR, exist_ok=True)
 
-PRIVATE_CHAT_DIR = "data/private_chats"
+def get_chat_filename(user1, user2):
+    sorted_users = sorted([user1["username"], user2["username"]])
+    return os.path.join(PRIVATE_CHAT_DIR, f"{sorted_users[0]}_{sorted_users[1]}.json")
 
-def _chat_filename(user1, user2):
-    sorted_users = sorted([user1, user2])
-    return f"{sorted_users[0]}_{sorted_users[1]}.json"
+def load_chat_history(filename):
+    if not os.path.exists(filename):
+        return []
+    with open(filename, "r") as f:
+        return json.load(f)
 
-def get_private_messages(user1, user2):
-    filename = _chat_filename(user1, user2)
-    filepath = os.path.join(PRIVATE_CHAT_DIR, filename)
-    return load_json(filepath)
+def save_chat_history(filename, history):
+    with open(filename, "w") as f:
+        json.dump(history, f, indent=2)
 
-def add_private_message(user1, user2, message):
-    filename = _chat_filename(user1, user2)
-    filepath = os.path.join(PRIVATE_CHAT_DIR, filename)
-    messages = load_json(filepath)
-    if not isinstance(messages, list):
-        messages = []
-    messages.append(message)
-    save_json(filepath, messages)
+def get_random_icebreaker():
+    try:
+        with open(ICEBREAKERS_FILE, "r") as f:
+            icebreakers = json.load(f)
+        return random.choice(icebreakers) if icebreakers else None
+    except:
+        return None
 
-def private_chat_screen(root, current_user, other_user):
-    """Render 1-on-1 private chat UI"""
-    root.title(f"Chat with {other_user}")
-    for widget in root.winfo_children():
-        widget.destroy()
-
-    theme = get_current_theme()
-
-    # Icebreaker popup
-    messagebox.showinfo("Icebreaker", get_random_icebreaker())
-
-    # Header
-    header = tk.Label(root, text=f"Chat with {other_user}", font=("Helvetica", 16, "bold"))
-    header.pack(pady=10)
-
-    # Chat window
-    chat_frame = scrolledtext.ScrolledText(root, width=80, height=20, state='disabled', wrap=tk.WORD)
-    chat_frame.pack(pady=10)
-
-    def load_messages():
-        chat_frame.config(state='normal')
-        chat_frame.delete('1.0', tk.END)
-        messages = get_private_messages(current_user, other_user)
-        if isinstance(messages, list):
-            for msg in messages:
-                sender = msg['sender']
-                timestamp = msg['timestamp']
-                content = msg['content']
-                align = 'right' if sender == current_user else 'left'
-                style_chat_bubble(chat_frame, sender, content, timestamp, align)
-        chat_frame.config(state='disabled')
-
-    load_messages()
-
-    # Message entry
-    input_frame = tk.Frame(root)
-    input_frame.pack(pady=5)
-
-    entry = tk.Entry(input_frame, width=60)
-    entry.pack(side=tk.LEFT, padx=5)
-
-    def send_message():
-        content = entry.get().strip()
-        if not content:
+def start_private_chat(user1, user2=None):
+    if not user2:
+        # Prompt to enter a username
+        target_username = input("Enter the username of the person you want to chat with: ").strip()
+        from modules.user_auth import load_users
+        all_users = load_users()
+        for u in all_users:
+            if u["username"] == target_username:
+                user2 = u
+                break
+        else:
+            print("❌ User not found.")
             return
-        timestamp = datetime.datetime.utcnow().isoformat()
-        message = {"sender": current_user, "timestamp": timestamp, "content": content}
-        add_private_message(current_user, other_user, message)
-        entry.delete(0, tk.END)
-        load_messages()
 
-    send_btn = tk.Button(input_frame, text="Send", command=send_message)
-    send_btn.pack(side=tk.LEFT)
+    if user1["username"] == user2["username"]:
+        print("⚠️ You can't chat with yourself!")
+        return
 
-    # Block & Report
-    options_frame = tk.Frame(root)
-    options_frame.pack(pady=10)
+    chat_file = get_chat_filename(user1, user2)
+    history = load_chat_history(chat_file)
 
-    tk.Button(options_frame, text="🚫 Block", command=lambda: messagebox.showinfo("Blocked", f"You blocked {other_user}")).pack(side=tk.LEFT, padx=5)
-    tk.Button(options_frame, text="⚠️ Report", command=lambda: messagebox.showinfo("Reported", f"You reported {other_user}")).pack(side=tk.LEFT, padx=5)
+    print(f"\n💬 Private Chat between {user1['username']} and {user2['username']}")
+    print("Type 'exit' to leave the chat.\n")
+
+    # Show previous messages
+    if history:
+        print("📜 Previous Messages:")
+        for msg in history:
+            ts = msg['timestamp']
+            print(f"[{ts}] {msg['sender']}: {msg['message']}")
+    else:
+        print("No previous messages.")
+
+    while True:
+        msg = input(f"{user1['username']}: ").strip()
+        if msg.lower() == "exit":
+            print("👋 Leaving chat.")
+            break
+        if msg == "":
+            continue
+        send_private_message(user1, user2["username"], msg)
+
+        # Display icebreaker after each message
+        icebreaker = get_random_icebreaker()
+        if icebreaker:
+            print(f"\n💡 Icebreaker: {icebreaker}\n")
+def send_private_message(sender, recipient_username, message):
+    # ... existing code to send message ...
+
+    # Notify recipient
+    add_notification(recipient_username, f"New message from {sender['username']}")
 
