@@ -1,62 +1,101 @@
-import tkinter as tk
-from modules import user_auth, user_profiles, settings
-from utils.ui_helpers import apply_theme
-from config import APP_TITLE
-from themes import LIGHT_THEME, DARK_THEME
-from modules.settings import get_settings, toggle_dark_mode
+from modules.user_auth import sign_up, login
+from modules.user_profiles import setup_profile
+from modules.private_chat import start_private_chat 
+from modules.event_planning import plan_event, view_events
+from modules.matches import find_matches
+from modules.group_chat import start_group_chat
+from modules.notifications import show_notifications
+from modules.moderator_tools import moderator_panel
+from modules.polls import create_poll, vote_in_poll, view_poll_results
+from modules.search import search_users
+from modules.setting import toggle_dark_mode
+from modules.group_management import assign_groups
+from modules.users import view_profile
+from modules import user_auth
+from utils.data_storage import init_data
 
-class HobbyHiveApp:
-    def __init__(self, root):
-        self.root = root
-        self.root.title(APP_TITLE)
-        self.root.geometry("900x600")
-        self.root.resizable(False, False)
+def main():
+    init_data()
+    print("🧩 Welcome to HobbyHive!")
+    while True:
+        print("\n1. Sign Up\n2. Log In\n3. Exit")
+        choice = input("Select option: ")
+        if choice == '1':
+            user = sign_up()
+            setup_profile(user)
+        elif choice == '2':
+            user = login()
+            if user:
+                view_events(user)
+                input("\npress Enter to continue to dashboard...")  # Show their events first
+                dashboard(user)    # Then go to dashboard
 
-        self.theme = DARK_THEME if get_settings().get("dark_mode") else LIGHT_THEME
-        apply_theme(self.root, self.theme)
+        elif choice == '3':
+            break
 
-        self.display_welcome_screen()
+def dashboard(user):
+    assign_groups(user)
+    while True:
+        print(f"\n📋 Dashboard for {user['username']}")
+        print("1. Group Chat\n2. Private Chat\n3. Plan/View Events\n4. Matches\n5. View Profile\n6. Search Users\n7. Polls")
+        print("8. Notifications\n9. Moderator Tools\n10. Dark Mode\n11. Logout")
+        choice = input("Choose action: ").strip()
+        print(f"DEBUG: Raw input was: { repr(choice)}")
 
-    def clear_screen(self):
-        for widget in self.root.winfo_children():
-            widget.destroy()
+        if choice == '1':
+            print("DEBUG: You selected group chat.")
+            print("DEBUG: start_group_chat was called.")
+            start_group_chat(user)
+        elif choice == '2':
+            start_private_chat(user)
+        elif choice == '3':
+            while True:
+                print("\n📅 Event Menu:")
+                print("1. Plan Event")
+                print("2. View Events")
+                print("3. Back to Dashboard")
+                event_choice = input("Choose option: ").strip()
+                if event_choice == '1':
+                    plan_event(user)
+                elif event_choice == '2':
+                    view_events(user)
+                elif event_choice == '3':
+                    break
+                else:
+                    print("❌ Invalid choice, try again.")
+        elif choice == '4':
+            find_matches(user)
+        elif choice == '5':
+            view_profile(user)
+        elif choice == '6':
+            search_users()
+        elif choice == '7':
+            while True:
+                print("\n📊 Poll Menu:")
+                print("1. Create Poll")
+                print("2. Vote in Poll")
+                print("3. View Poll Results")
+                print("4. Back to Dashboard")
+                poll_choice = input("Choose option: ").strip()
+                if poll_choice == '1':
+                    create_poll(user)
+                elif poll_choice == '2':
+                    vote_in_poll(user)
+                elif poll_choice == '3':
+                    view_poll_results()
+                elif poll_choice == '4':
+                    break
+                else:
+                     print("❌ Invalid choice.")
 
-    def apply_current_theme(self):
-        apply_theme(self.root, self.theme)
+        elif choice == '8':
+            show_notifications(user)
+        elif choice == '9':
+            moderator_panel()
+        elif choice == '10':
+            toggle_dark_mode(user)
+        elif choice == '11':
+            break
 
-    def toggle_theme(self):
-        is_dark = toggle_dark_mode()
-        self.theme = DARK_THEME if is_dark else LIGHT_THEME
-        self.apply_current_theme()
-
-    def display_welcome_screen(self):
-        self.clear_screen()
-
-        logo_label = tk.Label(self.root, text="🐝 Hobby Hive", font=("Helvetica", 28, "bold"))
-        logo_label.pack(pady=40)
-
-        login_btn = tk.Button(self.root, text="Log In", width=20, command=self.display_login)
-        signup_btn = tk.Button(self.root, text="Sign Up", width=20, command=self.display_signup)
-        theme_btn = tk.Button(self.root, text="Toggle Theme", command=self.toggle_theme)
-
-        login_btn.pack(pady=10)
-        signup_btn.pack(pady=10)
-        theme_btn.pack(pady=10)
-
-    def display_login(self):
-        self.clear_screen()
-        user_auth.login_screen(self.root, self.navigate_to_dashboard, self.display_welcome_screen)
-
-    def display_signup(self):
-        self.clear_screen()
-        user_auth.signup_screen(self.root, self.navigate_to_dashboard, self.display_welcome_screen)
-
-    def navigate_to_dashboard(self, username):
-        self.clear_screen()
-        user_profiles.dashboard_screen(self.root, username)
-
-# Launch the app
 if __name__ == "__main__":
-    root = tk.Tk()
-    app = HobbyHiveApp(root)
-    root.mainloop()
+    main()
