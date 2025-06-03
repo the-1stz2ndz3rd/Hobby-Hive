@@ -1,39 +1,27 @@
-# modules/search.py
+import json
+from config import USER_DATA_FILE  # Make sure this is correctly defined
 
-from utils.data_storage import load_json
+def search_users():
+    query = input("Search by hobby or name: ").strip().lower()
 
-USERS_FILE = "data/users_data.json"
-GROUPS_FILE = "data/group_data.json"
+    try:
+        with open(USER_DATA_FILE, "r") as f:
+            users = json.load(f)
+    except:
+        print("❌ Could not load user data.")
+        return
 
-def search_users_by_name(query: str) -> dict:
-    """
-    Search users whose usernames contain the query string (case-insensitive).
-    """
-    users = load_json(USERS_FILE)
-    if not isinstance(users, dict):
-        return {}
-    query_lower = query.lower()
-    return {u: data for u, data in users.items() if query_lower in u.lower()}
+    matches = []
+    for user in users:
+        name = user["username"].lower()
+        hobbies = [h.lower() for h in user.get("hobbies", [])]
+        if query in name or any(query in hobby for hobby in hobbies):
+            matches.append(user)
 
-def search_groups_by_name(query: str) -> dict:
-    """
-    Search groups whose names contain the query string (case-insensitive).
-    """
-    groups = load_json(GROUPS_FILE)
-    if not isinstance(groups, dict):
-        return {}
-    query_lower = query.lower()
-    return {g: details for g, details in groups.items() if query_lower in g.lower()}
+    if not matches:
+        print("📭 No users found.")
+        return
 
-def search_users_by_hobby(hobby: str) -> dict:
-    """
-    Search users who have the given hobby (case-insensitive exact match).
-    """
-    users = load_json(USERS_FILE)
-    if not isinstance(users, dict):
-        return {}
-    hobby_lower = hobby.lower()
-    return {
-        u: data for u, data in users.items()
-        if any(h.lower() == hobby_lower for h in data.get("hobbies", []))
-    }
+    print(f"\n🔍 Results for '{query}':")
+    for user in matches:
+        print(f"👤 {user['username']} | Hobbies: {', '.join(user['hobbies'])}")
