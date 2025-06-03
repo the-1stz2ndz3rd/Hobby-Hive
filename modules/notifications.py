@@ -1,28 +1,49 @@
-# modules/notifications.py
-from utils.data_storage import load_json, save_json
+import json
+import os
+from config import NOTIFICATIONS_FILE  # e.g. "data/notifications.json"
 
-NOTIFICATIONS_FILE = "data/notifications.json"
+# Make sure the directory exists
+os.makedirs(os.path.dirname(NOTIFICATIONS_FILE), exist_ok=True)
 
-
-def get_notifications(username):
-    notifications = load_json(NOTIFICATIONS_FILE)
-    if not isinstance(notifications, dict):
+def show_notifications(user):
+    """
+    Show all notifications for the given user.
+    """
+    try:
+        with open(NOTIFICATIONS_FILE, "r") as f:
+            notifications = json.load(f)
+    except FileNotFoundError:
         notifications = {}
-    return notifications.get(username, [])
 
-def add_notification(username, notification):
-    notifications = load_json(NOTIFICATIONS_FILE)
-    if not isinstance(notifications, dict):
-        notifications = {}
-    user_notes = notifications.get(username, [])
-    user_notes.append(notification)
-    notifications[username] = user_notes
-    save_json(NOTIFICATIONS_FILE, notifications)
+    user_notes = notifications.get(user["username"], [])
 
-def clear_notifications(username):
-    notifications = load_json(NOTIFICATIONS_FILE)
-    if not isinstance(notifications, dict):
+    if not user_notes:
+        print("📭 You have no new notifications.")
+        return
+
+    print(f"🔔 Notifications for {user['username']}:")
+    for i, note in enumerate(user_notes, 1):
+        print(f"{i}. {note}")
+
+    # Optionally clear notifications after showing
+    clear = input("Clear notifications? (y/n): ").strip().lower()
+    if clear == 'y':
+        notifications[user["username"]] = []
+        with open(NOTIFICATIONS_FILE, "w") as f:
+            json.dump(notifications, f, indent=2)
+        print("✅ Notifications cleared.")
+
+def add_notification(username, message):
+    """
+    Add a notification message to the specified username.
+    """
+    try:
+        with open(NOTIFICATIONS_FILE, "r") as f:
+            notifications = json.load(f)
+    except FileNotFoundError:
         notifications = {}
-    if username in notifications:
-        notifications[username] = []
-        save_json(NOTIFICATIONS_FILE, notifications)
+
+    notifications.setdefault(username, []).append(message)
+
+    with open(NOTIFICATIONS_FILE, "w") as f:
+        json.dump(notifications, f, indent=2)
