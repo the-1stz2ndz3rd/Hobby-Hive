@@ -1,63 +1,115 @@
-# modules/polls.py
+import json
+import os
+from config import POLLS_FILE  # Define POLLS_FILE = "data/polls.json"
+from modules.notifications import add_notification
+from modules.user_auth import load_users
 
-import uuid
-from utils.data_storage import load_json, save_json
+os.makedirs(os.path.dirname(POLLS_FILE), exist_ok=True)
 
-POLLS_FILE = "data/polls.json"
+def create_poll(user):
+    question = input("Enter poll question: ")
+    options = []
+    print("Enter poll options (type 'done' to finish):")
+    while True:
+        option = input(f"Option {len(options)+1}: ").strip()
+        if option.lower() == 'done':
+            break
+        if option:
+            options.append(option)
 
-def get_polls():
-    """
-    Returns a list of all polls.
-    Each poll has: id, question, options (list), votes (dict), created_by, group
-    """
-    polls = load_json(POLLS_FILE)
-    return polls if isinstance(polls, list) else []
-
-def add_poll(question, options, created_by, group=None):
-    """
-    Creates a new poll.
-    Params:
-        - question (str): Poll question
-        - options (list of str): List of answer options
-        - created_by (str): Username
-        - group (str): Optional, hobby group
-    Returns: (bool, str)
-    """
-    if not question or not options or not isinstance(options, list):
-        return False, "Invalid poll data."
+    if len(options) < 2:
+        print("❌ A poll needs at least 2 options.")
+        return
 
     poll = {
-        "id": str(uuid.uuid4()),
         "question": question,
         "options": options,
-        "votes": {option: 0 for option in options},
-        "created_by": created_by,
-        "group": group
+        "votes": [0] * len(options),
+        "creator": user["username"]
     }
 
-    polls = get_polls()
+    try:
+        with open(POLLS_FILE, "r") as f:
+            polls = json.load(f)
+    except:
+        polls = []
+
     polls.append(poll)
-    save_json(POLLS_FILE, polls)
-    return True, "Poll created successfully."
 
-def vote_poll(poll_id, option):
-    """
-    Adds a vote to a specific option in a poll.
-    """
-    polls = get_polls()
+    with open(POLLS_FILE, "w") as f:
+        json.dump(polls, f, indent=2)
+
+    print("📊 Poll created successfully!")
+
+# Notify the creator
+    add_notification(user["username"], f"Poll '{question}' created successfully!")
+
+# Notify all other users
+    all_users = load_users()
+    for u in all_users:
+        if u["username"] != user["username"]:
+            add_notification(u["username"], f"📢 New poll available: '{question}'")
+
+def vote_in_poll(user):
+    try:
+        with open(POLLS_FILE, "r") as f:
+            polls = json.load(f)
+    except:
+        print("📭 No polls available.")
+        return
+
+    if not polls:
+        print("📭 No polls found.")
+        return
+
+    print("\n📊 Available Polls:")
+    for i, poll in enumerate(polls):
+        print(f"{i+1}. {poll['question']} (by {poll['creator']})")
+
+    try:
+        choice = int(input("Select poll number to vote in: ")) - 1
+        poll = polls[choice]
+    except (ValueError, IndexError):
+        print("❌ Invalid choice.")
+        return
+
+    print(f"\n📋 {poll['question']}")
+    for idx, option in enumerate(poll["options"], 1):
+        print(f"{idx}. {option}")
+    
+    try:
+        vote = int(input("Choose option number: ")) - 1
+        if vote < 0 or vote >= len(poll["options"]):
+            raise ValueError
+        poll["votes"][vote] += 1
+    except (ValueError, IndexError):
+        print("❌ Invalid vote.")
+        return
+
+    with open(POLLS_FILE, "w") as f:
+        json.dump(polls, f, indent=2)
+
+    print("✅ Vote recorded.")
+def view_poll_results():
+    try:
+        with open(POLLS_FILE, "r") as f:
+            polls = json.load(f)
+    except:
+        print("📭 No poll data found.")
+        return
+
+    if not polls:
+        print("📭 No polls to show.")
+        return
+
+    print("\n📈 Poll Results:")
     for poll in polls:
-        if poll.get("id") == poll_id:
-            if option in poll["votes"]:
-                poll["votes"][option] += 1
-                save_json(POLLS_FILE, polls)
-                return True, "Vote counted!"
-            else:
-                return False, "Invalid option."
-    return False, "Poll not found."
+        print(f"\n🔸 {poll['question']}")
+        total = sum(poll["votes"])
+        for i, option in enumerate(poll["options"]):
+            vote_count = poll["votes"][i]
+            percent = (vote_count / total * 100) if total else 0
+            print(f"   - {option}: {vote_count} vote(s) ({percent:.1f}%)")
+        print("-" * 40)
 
-def get_poll_by_id(poll_id):
-    """
-    Retrieve a specific poll by its unique ID.
-    """
-    polls = get_polls()
-    return next((poll for poll in polls if poll.get("id") == poll_id), None)
+
