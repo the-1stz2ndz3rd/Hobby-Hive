@@ -1,58 +1,58 @@
-# modules/event_planning.py
-
+import json
 import os
+from modules.notifications import add_notification
 from datetime import datetime
-from utils.data_storage import load_json, save_json
+from config import EVENTS_FILE  # Define EVENTS_FILE = "data/events.json" in config.py
 
-EVENTS_FILE = "data/events.json"
+# Ensure data directory exists
+os.makedirs(os.path.dirname(EVENTS_FILE), exist_ok=True)
 
-def get_events():
-    """
-    Load and return all scheduled events as a list of dictionaries.
-    Each event contains: title, group, datetime, description, created_by
-    """
-    events = load_json(EVENTS_FILE)
-    return events if isinstance(events, list) else []
+def plan_event(user):
+    title = input("Event title: ").strip()
+    date_str = input("Date (YYYY-MM-DD): ").strip()
+    group = input("Associated Group (optional): ").strip()
 
-def add_event(event):
-    """
-    Adds a new event.
-    Expected event dict keys:
-        - title (str)
-        - group (str): e.g. "Hiking"
-        - datetime (ISO format str): "2025-06-01T14:30:00"
-        - description (str)
-        - created_by (username)
-    """
-    required_keys = {"title", "group", "datetime", "description", "created_by"}
-    if not isinstance(event, dict) or not required_keys.issubset(event):
-        return False, "Invalid event format."
-
-    # Validate datetime format
     try:
-        datetime.fromisoformat(event["datetime"])
+        datetime.strptime(date_str, "%Y-%m-%d")
     except ValueError:
-        return False, "Invalid datetime format. Use ISO format."
+        print("❌ Invalid date format.")
+        return
 
-    events = get_events()
+    event = {
+        "title": title,
+        "date": date_str,
+        "creator": user["username"],
+        "group": group or None
+    }
+
+    try:
+        with open(EVENTS_FILE, "r") as f:
+            events = json.load(f)
+    except:
+        events = []
+
     events.append(event)
-    save_json(EVENTS_FILE, events)
-    return True, "Event created successfully."
 
-def get_group_events(group_name):
-    """
-    Return only the events associated with a specific group
-    """
-    events = get_events()
-    return [e for e in events if e.get("group") == group_name]
+    with open(EVENTS_FILE, "w") as f:
+        json.dump(events, f, indent=2)
 
-def delete_event(index):
-    """
-    Delete event by index in the list. (e.g. for moderator access)
-    """
-    events = get_events()
-    if 0 <= index < len(events):
-        deleted = events.pop(index)
-        save_json(EVENTS_FILE, events)
-        return True, f"Deleted event: {deleted.get('title')}"
-    return False, "Invalid index for deletion."
+    print(f"📅 Event '{title}' on {date_str} created.")
+    add_notification(user["username"], f"Event '{title}' created successfully!")
+
+def view_events(user):
+    try:
+        with open(EVENTS_FILE, "r") as f:
+            events = json.load(f)
+    except:
+        print("📭 No events found.")
+        return
+
+    user_events = [e for e in events if e["creator"] == user["username"] or e.get("group") in user.get("hobbies", [])]
+
+    if not user_events:
+        print("📭 No upcoming events for you.")
+        return
+
+    print("📆 Your Events:")
+    for e in user_events:
+        print(f"🔸 {e['title']} on {e['date']} (Group: {e['group'] or 'N/A'})")
