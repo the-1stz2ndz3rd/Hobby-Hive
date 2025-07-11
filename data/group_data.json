@@ -1,277 +1,55 @@
 {
-  "Photography": {
-    "group_name": "Shutter Squad",
-    "motto": "Capturing Moments, telling stories",
-    "theme_color": "sepia",
-    "icon_filename": "camera_icon.png",
-    "rules": [
-      "Respect copyright",
-      "Credit photographers",
-      "Constructive critique only"
+  "Music": {
+    "name": "Music",
+    "members": [
+      "yy",
+      "jj",
+      "alem",
+      "cc",
+      "adis",
+      "selam"
     ]
   },
-  "Philosophy": {
-    "group_name": "The dialectic den",
-    "motto": "Question Everything, think deep, live wisely",
-    "theme_color": "Burnt orange",
-    "icon_filename": "philosopher_icon.png",
-    "rules": [
-      "Engage respectfully",
-      "Base arguments on logic",
-      "Avoid personal attacks"
+  "Art": {
+    "name": "Art",
+    "members": [
+      "yy"
     ]
   },
-  "Singing": {
-    "group_name": "Harmonic Voices",
-    "motto": "Sounds from the Heart",
-    "theme_color": "Royal Blue",
-    "icon_filename": "microphone_icon.png",
-    "rules": [
-      "Warm-up before singing",
-      "Respect vocal ranges",
-      "Support fellow singers"
+  "Gaming": {
+    "name": "Gaming",
+    "members": [
+      "cc"
     ]
   },
-  "Playing Musical Instruments": {
-    "group_name": "The Sound Ensemble",
-    "motto": "Create harmony, inspire hearts",
-    "theme_color": "Burgundy",
-    "icon_filename": "guitar_icon.png",
-    "rules": [
-      "Practice regularly",
-      "Share knowledge",
-      "Collaborate creatively"
-    ]
+  "Fitness": {
+    "name": "Fitness",
+    "members": []
   },
-  "Acting": {
-    "group_name": "Spotlight society",
-    "motto": "Embody the Character, bring stories to life",
-    "theme_color": "Deep Red",
-    "icon_filename": "mask_icon.png",
-    "rules": [
-      "Memorize lines",
-      "Respect fellow actors",
-      "Embrace feedback"
-    ]
-  },
-  "Crocheting": {
-    "group_name": "Cozy stiches",
-    "motto": "Weaving warmth, One loop at a Time",
-    "theme_color": "Pastel Pink",
-    "icon_filename": "crochet_hook_icon.png",
-    "rules": [
-      "Share patterns",
-      "Assist beginners",
-      "Maintain a tidy workspace"
-    ]
-  },
-  "Reading": {
-    "group_name": "PageTurners",
-    "motto": "Escape, learn, and imagine.",
-    "theme_color": "Forest Green",
-    "icon_filename": "book_icon.png",
-    "rules": [
-      "Respect differing opinions",
-      "Avoid spoilers",
-      "Read actively"
-    ]
-  },
-  "Hiking": {
-    "group_name": "Peak seekers",
-    "motto": "Climb high. Breathe deep. Live free.",
-    "theme_color": "Earthy Brown",
-    "icon_filename": "boot_icon.png",
-    "rules": [
-      "Stay on marked trails",
-      "Carry essentials",
-      "Respect wildlife"
-    ]
-  },
-  "Running": {
-    "group_name": "Stride squad",
-    "motto": "Gasping and laughing all the way.",
-    "theme_color": "Neon Yellow",
-    "icon_filename": "sneaker_icon.png",
-    "rules": [
-      "Warm-up before runs",
-      "Hydrate",
-      "Encourage fellow runners"
-    ]
-  },
-  "Dance": {
-    "group_name": "Rhythm rebels",
-    "motto": "Breaking rules, making moves.",
-    "theme_color": "Electric Blue",
-    "icon_filename": "dance_icon.png",
-    "rules": [
-      "Respect personal space",
-      "Practice regularly",
-      "Support creativity"
-    ]
-  },
-  "Football (Soccer)": {
-    "group_name": "Kickoff crew",
-    "motto": "Set up, strike hard.",
-    "theme_color": "Sky Blue",
-    "icon_filename": "football_icon.png",
-    "rules": [
-      "Play fair",
-      "Communicate on the field",
-      "Respect referees"
-    ]
-  },
-  "Basketball": {
-    "group_name": "Hoop Syndicate",
-    "motto": "Rise, shoot, score.",
-    "theme_color": "Crimson",
-    "icon_filename": "basketball_icon.png",
-    "rules": [
-      "Teamwork is key",
-      "Respect opponents",
-      "Practice regularly"
-    ]
-  },
-  "Skateboarding": {
-    "group_name": "Kickflip krew",
-    "motto": "Defy gravity, ride the streets.",
-    "theme_color": "Rainbow Swirl",
-    "icon_filename": "swirl_icon.png",
-    "rules": [
-      "Respect all skaters",
-      "Wear protective gear",
-      "Encourage beginners"
-    ]
-  },
-  "Video Gaming": {
-    "group_name": "Pixel pack",
-    "motto": "Defeat bosses, and level up",
-    "theme_color": "Neon Green",
-    "icon_filename": "controller_icon.png",
-    "rules": [
-      "Respect fellow gamers",
-      "Avoid cheating",
-      "Share tips"
-    ]
-  },
-  "Coding/Programming": {
-    "group_name": "Syntax squad",
-    "motto": "Smashing bugs, one byte at a time.",
-    "theme_color": "Electric Purple",
-    "icon_filename": "code_icon.png",
-    "rules": [
-      "Share knowledge",
-      "Write clean code",
-      "Respect deadlines"
-    ]
-  },
-  "Learning languages": {
-    "group_name": "Polyglot krew",
-    "motto": "Speak More, Break barriers",
-    "theme_color": "Turquoise",
-    "icon_filename": "language_icon.png",
-    "rules": [
-      "Encourage practice",
-      "Respect all cultures",
-      "Avoid negativity"
-    ]
-  },
-  "Traveling": {
-    "group_name": "Globe Trekkers",
-    "motto": "Adventure Awaits, grab and embrace it",
-    "theme_color": "Sunset Orange",
-    "icon_filename": "globe_icon.png",
-    "rules": [
-      "Share travel tips",
-      "Be respectful to cultures",
-      "Safety first"
-    ]
-  },
-  "Astronomy": {
-    "group_name": "Star Gazers",
-    "motto": "Eyes to the skies, hearts in the cosmos.",
-    "theme_color": "Navy Blue",
-    "icon_filename": "telescope_icon.png",
-    "rules": [
-      "Share observations",
-      "No light pollution",
-      "Encourage curiosity"
-    ]
-  },
-  "Weight lifting": {
-    "group_name": "Iron titans",
-    "motto": "Pain is weakness leaving the body.",
-    "theme_color": "Steel Gray",
-    "icon_filename": "dumbbell_icon.png",
-    "rules": [
-      "Warm-up and stretch",
-      "Proper form",
-      "Support others"
-    ]
-  },
-  "Martial arts": {
-    "group_name": "Warrior Spirit",
-    "motto": "Discipline, Respect, Power",
-    "theme_color": "Crimson and Black",
-    "icon_filename": "martial_arts_icon.png",
-    "rules": [
-      "Safety first",
-      "Respect your opponents",
-      "Train regularly"
-    ]
-  },
-  "Fashion design": {
-    "group_name": "Sewn society",
-    "motto": "Wear your creativity",
-    "theme_color": "Gold",
-    "icon_filename": "fashion_icon.png",
-    "rules": [
-      "Respect originality",
-      "Share ideas",
-      "No plagiarism"
-    ]
-  },
-  "Drawing": {
-    "group_name": "Sketch Society",
-    "motto": "Making imagination a reality with every stroke",
-    "theme_color": "Charcoal Gray",
-    "icon_filename": "pencil_icon.png",
-    "rules": [
-      "Share work respectfully",
-      "Encourage critiques",
-      "No copying"
-    ]
+  "Books": {
+    "name": "Books",
+    "members": []
   },
   "Cooking": {
-    "group_name": "Flavor foundry",
-    "motto": "Tell stories through flavor, Share them with Love",
-    "theme_color": "Tomato Red",
-    "icon_filename": "chef_hat_icon.png",
-    "rules": [
-      "Share recipes",
-      "Respect dietary choices",
-      "Encourage experimentation"
+    "name": "Cooking",
+    "members": []
+  },
+  "Photography": {
+    "name": "Photography",
+    "members": []
+  },
+  "Travel": {
+    "name": "Travel",
+    "members": []
+  },
+  "Tech": {
+    "name": "Tech",
+    "members": [
+      "abebe"
     ]
   },
-  "Watching movies": {
-    "group_name": "Cinephiles",
-    "motto": "Watching Worlds Unfold.",
-    "theme_color": "Dark Purple",
-    "icon_filename": "film_reel_icon.png",
-    "rules": [
-      "Avoid spoilers",
-      "Respect all genres",
-      "Open discussions"
-    ]
-  },
-  "Social media content creating": {
-    "group_name": "Authentic Voices",
-    "motto": "Create, Share, Inspire",
-    "theme_color": "Vibrant Teal",
-    "icon_filename": "content_creator_icon.png",
-    "rules": [
-      "Respect copyright",
-      "Encourage originality",
-      "Positive feedback only"
-    ]
+  "Gardening": {
+    "name": "Gardening",
+    "members": []
   }
 }

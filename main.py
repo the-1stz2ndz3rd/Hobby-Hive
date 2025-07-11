@@ -11,8 +11,8 @@ from modules.search import search_users
 from modules.setting import toggle_dark_mode
 from modules.group_management import assign_groups
 from modules.users import view_profile
-from modules import user_auth
-from utils.data_storage import init_data
+from modules import user_auth 
+
 
 def main():
     init_data()
